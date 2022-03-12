@@ -23,7 +23,9 @@
 また、同じ趣味を通じた交流の場としても活用できます。
 
 ## 設計書
-...
+-https://app.diagrams.net/
+-https://docs.google.com/spreadsheets/d/1j34n98otEYpk0DXRzunmU6vxR4QJYMOrKWxPZJi5hdw/edit?usp=sharing
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1gL-Va7nLtC9goBJ_7-nn7qLBmVEmlOIYSiQ9b42HGGo/edit?usp=sharing
