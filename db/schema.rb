@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_12_020708) do
+ActiveRecord::Schema.define(version: 2022_03_16_022231) do
+
+  create_table "records", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "stoped_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "runs", force: :cascade do |t|
+    t.datetime "start_at"
+    t.datetime "stoped_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "time_records", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "stoped_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

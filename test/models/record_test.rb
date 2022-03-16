@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TimerecordsControllerTest < ActionDispatch::IntegrationTest
+class RecordTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

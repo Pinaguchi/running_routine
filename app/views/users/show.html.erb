@@ -1,2 +1,7 @@
 <h1>マイページ</h1>
 <p>カレンダー形式に記録表示</p>
+
+<%# 以下を追記 %>
+<%= month_calendar events: @tiem_records do |date, time_records| %>
+  <%= date.day %>
+<% end %>

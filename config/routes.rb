@@ -5,5 +5,14 @@ Rails.application.routes.draw do
   root to: 'homes#top', as: 'root'
   get 'users/my_page' => 'users#show'
   get 'users/edit' => 'users#edit'
-  resources :timerecords, only: [:index, :show, ]
+  resources :records, only: [:new, :index, :show, ]
+
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
+
+
+
 end
