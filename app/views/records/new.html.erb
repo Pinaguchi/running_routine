@@ -1,6 +1,6 @@
 <h1>タイムの追加</h1>
 
-<%= form_with(model: @record, local: true) do |form| %>
+<%= form_with(model: @record_path, local: true) do |form| %>
 
   <div class="start_time">
     <%= form.label :開始時間 %>
@@ -17,3 +17,18 @@
   </div>
 
 <% end %>
+
+ <div id="content">
+   <div id="timer">
+     <h2 id="name">StopWatch</h2>
+     <p id="text">
+       <span id="min">0</span>min
+       <span id="sec">00.00</span>sec
+     </p>
+     <input type="button" id="start" value="Start">
+     <input type="button" id="stop" value="Stop" disabled>
+     <input type="button" id="reset" value="Reset" disabled>
+   </div>
+ </div>
+
+
