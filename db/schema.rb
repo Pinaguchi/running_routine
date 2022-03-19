@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 2022_03_16_022231) do
   create_table "records", force: :cascade do |t|
     t.datetime "start_time"
     t.datetime "stoped_time"
+    t.integer "user_id"
+    t.date "start_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -2,9 +2,10 @@
 
 <%= form_with(model: @record, local: true) do |form| %>
   <div class="submit">
-    <%= form.submit '開始' %>
+    <%= form.submit 'stop' %>
   </div>
 <% end %>
 
 
-開始時間 <%= @record.start_time %>
+開始時間 <%= @record.start_time %><br>
+stop始時間 <%= @record.stoped_time %>

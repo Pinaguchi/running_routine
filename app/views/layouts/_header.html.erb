@@ -5,7 +5,7 @@
   <ul class="navbar-nav ml-auto" >
       <% if user_signed_in? %>
         <li>
-          <%= link_to "タイム測定", root_path, class: 'nav-link text-light' %>
+          <%= link_to "タイム測定", new_record_path, class: 'nav-link text-light' %>
         </li>
         <li>
           <%= link_to "マイページ", root_path, class: 'nav-link text-light' %>
