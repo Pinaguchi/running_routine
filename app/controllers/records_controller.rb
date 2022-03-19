@@ -11,8 +11,8 @@ class RecordsController < ApplicationController
   def create
     start_time = DateTime.current
     today = Date.current
-    current_user.record.create({ start_time: start_time, start_date: today})
-    redirect_to edit_record_path
+    record = current_user.record.create({ starting_time: start_time, start_date: today})
+    redirect_to edit_record_path(record.id)
   end
 
   def edit

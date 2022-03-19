@@ -1,7 +1,12 @@
 <h2>今月の記録</h2>
 
-<%= month_calendar records: @records do |date, records| %>
-  <%= date.day %>
-<% end %>
+  <%= month_calendar attribute: :start_date, events: @records do |date, records| %>
+    <%= date.day %><br>
+      <div class="text-danger h6">
+        <% records.each do |record| %>
+        <%= (record.stoped_time - record.starting_time) / 60 %>
+        <% end %>
+      </div>
+  <% end %>
 
 
