@@ -4,7 +4,7 @@
     <%= date.day %><br>
       <div class="text-danger h6">
         <% records.each do |record| %>
-        <%= (record.stoped_time - record.starting_time) / 60 %>
+          <%= record.stoped_time %>
         <% end %>
       </div>
   <% end %>
