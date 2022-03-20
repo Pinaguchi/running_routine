@@ -1,11 +1,13 @@
-<h1>タイムの追加</h1>
+<div class="container">
+  <div class="center-block">
+    <h1>タイム終了</h1>
+      <%= form_with(model: @record, local: true) do |form| %>
+        <div class="submit">
+          <%= form.submit '終了' %>
+        </div>
+      <% end %>
 
-<%= form_with(model: @record, local: true) do |form| %>
-  <div class="submit">
-    <%= form.submit '終了' %>
+      開始時間 <%= @record.starting_time %><br>
+      終了時間 <%= @record.stoped_time %><br>
   </div>
-<% end %>
-
-
-開始時間 <%= @record.starting_time %><br>
-終了時間 <%= @record.stoped_time %><br>
+</div>

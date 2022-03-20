@@ -1,8 +1,10 @@
-<h1>タイム</h1>
-
-<%= form_with(model: @record, local: true) do |form| %>
-  <div class="submit">
-    <%= form.submit '開始' %>
-  </div>
-
-<% end %>
+<div class="container">
+<div class="center-block">
+  <h1>タイム開始</h1>
+    <%= form_with(model: @record, local: true) do |form| %>
+      <div class="submit">
+        <%= form.submit '開始' %>
+      </div>
+    <% end %>
+</div>
+</div>
