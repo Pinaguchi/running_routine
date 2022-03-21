@@ -7,7 +7,6 @@
         </div>
       <% end %>
 
-      開始時間 <%= @record.starting_time %><br>
-      終了時間 <%= @record.stoped_time %><br>
+      開始時間 <%= Time.at(@record.starting_time) %><br>
   </div>
 </div>

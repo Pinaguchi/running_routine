@@ -1,9 +1,9 @@
 class RecordsController < ApplicationController
   before_action :set_beginning_of_week
+  before_action :authenticate_user!
 
   def index
-    @records = Record.all
-
+    @records = current_user.record.all
   end
 
   def new
@@ -13,7 +13,13 @@ class RecordsController < ApplicationController
   def create
     start_time = DateTime.current
     today = Date.current
-    record = current_user.record.create({ starting_time: start_time, start_date: today})
+    record =  Record.find_by(start_date: today)
+    if record
+      record.update(starting_time: start_time)
+    else
+      record = current_user.record.create({ starting_time: start_time, start_date: today})
+    end
+      
     redirect_to edit_record_path(record.id)
   end
 
@@ -31,6 +37,10 @@ class RecordsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    @record = Record.find_by(user_id: current_user.id, start_date: Date.current)
   end
 
   private

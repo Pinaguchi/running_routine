@@ -4,7 +4,11 @@
     <%= date.day %><br>
       <div class="text-danger h6">
         <% records.each do |record| %>
-          <%= Time.at(record.stoped_time - record.starting_time).strftime("%M分 %S秒") %>
+          <% if record.stoped_time  %>
+            <%= link_to record_path(record.id) do %>
+              <%= Time.at(record.stoped_time - record.starting_time).strftime("%M分 %S秒") %>
+             <% end %>
+          <% end%>
         <% end %>
       </div>
   <% end %>
