@@ -1,18 +1,18 @@
 <div class="container">
-  <div class="center-block">
-    <h1>タイム終了</h1>
+  <div class="alert alert-dark d-flex align-items-center justify-content-center">
+    <h1>タイムを計ろう ～ ストップ ～</h1>
+  </div>
+
+			 <button type="submit" class="btn btn-lg btn-danger w-25" disabled>開始</button>
+
       <%= form_with(model: @record, local: true) do |form| %>
         <div class="submit">
-          <%= form.submit '開始' %>
-        </div>
-
-        <div class="submit">
-          <%= form.submit '終了' %>
+          <%= form.submit '終了', class: "btn btn-lg btn-primary w-25" %>
         </div>
       <% end %>
 
 
-        開始時間 <%= Time.at(@record.starting_time) %><br>
+        スタート時間 ➡ <%= Time.zone.at(@record.starting_time).strftime("%H時 %M分 %S秒") %>
 
   </div>
 </div>

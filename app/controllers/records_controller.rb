@@ -13,7 +13,7 @@ class RecordsController < ApplicationController
   def create
     start_time = DateTime.current
     today = Date.current
-    record =  Record.find_by(start_date: today)
+    record =  current_user.record.find_by(start_date: today)
     if record
       record.update(starting_time: start_time)
     else
@@ -33,7 +33,7 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find_by(user_id: current_user.id, start_date: Date.current)
     if @record.update(stoped_time: DateTime.current)
-      redirect_to edit_record_path(@record.id)
+      redirect_to records_my_page_path
     else
       render :edit
     end

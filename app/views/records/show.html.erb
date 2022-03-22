@@ -1,9 +1,11 @@
 <div class="container">
-  <div class="center-block">
+  <div class="text-center">
     <h2>【記録の詳細】</h2>
-      <h5>スタート時間 : <%= Time.at(@record.starting_time).strftime("%Y年 %m月 %d日/ %H時 %M分 %S秒") %></h5>
-      <h5>ストップ時間 : <%= Time.at(@record.stoped_time).strftime("%Y年 %m月 %d日/ %H時 %M分 %S秒") %></h5>
+      <h5>スタート : <%= Time.zone.at(@record.starting_time).strftime("%Y年 %m月 %d日/ %H時 %M分 %S秒") %></h5>
+      <h5>ストップ : <%= Time.zone.at(@record.stoped_time).strftime("%Y年 %m月 %d日/ %H時 %M分 %S秒") %></h5>
       <h4>大阪城１周3.5㎞のタイム : <%= Time.at(@record.stoped_time - @record.starting_time).strftime("%M分 %S秒") %></h4>
-      <h4>1㎞を <%= Time.at((@record.stoped_time - @record.starting_time) / 3.5).strftime("%M分 %S秒") %>のペースです。</h4>
+      <h4>
+        1㎞を <%= Time.zone.at((@record.stoped_time - @record.starting_time) / 3.5).strftime("%M分 %S秒") %> のペースです。
+      </h4>
   </div>
 </div>

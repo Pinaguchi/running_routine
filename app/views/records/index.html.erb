@@ -1,7 +1,5 @@
 <div class="container">
-<h2 class="text-center"><%= current_user.name %>さん記録</h2>
-
-
+  <h2 class="text-center">『<%= current_user.name %>さんの記録』</h2>
 
   <%= month_calendar attribute: :start_date, events: @records do |date, records| %>
     <%= date.day %><br>
