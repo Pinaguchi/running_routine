@@ -59,6 +59,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'simple_calendar', '~> 2.0'
+gem 'kaminari','~> 1.2.1'
 
 gem 'dotenv-rails'
 group :production do

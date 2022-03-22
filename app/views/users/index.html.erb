@@ -4,8 +4,12 @@
       <h4>会員</h4>
       <table class="table">
         <tr>
-          <th>ニックネーム</th>
-          <td><%= @user.name %></td>
+          <th>ニックネーム : </th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <td>フォロー数: <%= @user.followings.count %></td>
+          <td>フォロワー数: <%= @user.followers.count %></td>
         </tr>
       </table>
        <% if @user == current_user %>
@@ -30,7 +34,7 @@
     <tr>
       <td><%= user.name %></td>
       <td>
-        <%= link_to "Show", user_path(user.id) %>
+        <%= link_to "タイムを見る", user_path(user.id) %>
       </td>
       <td>
         <% unless current_user == user %>
@@ -45,5 +49,6 @@
   </tbody>
   <% end %>
 </table>
+<%= paginate @users %>
   </div>
 </div>
