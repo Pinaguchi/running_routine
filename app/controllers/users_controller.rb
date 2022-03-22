@@ -2,18 +2,24 @@ class UsersController < ApplicationController
   #before_action :authenticate_user!
 
   def index
-
+    @user = current_user
+    @users = User.all
   end
 
   def show
+    @user = User.find(params[:id])
+    #@records = @user.records
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to record_my_page_path
     else

@@ -1,8 +1,11 @@
-<h2>今月の記録</h2>
+<div class="container">
+<h2 class="text-center"><%= current_user.name %>さん記録</h2>
+
+
 
   <%= month_calendar attribute: :start_date, events: @records do |date, records| %>
     <%= date.day %><br>
-      <div class="text-danger h6">
+      <div class="link-danger h6">
         <% records.each do |record| %>
           <% if record.stoped_time  %>
             <%= link_to record_path(record.id) do %>
@@ -12,5 +15,6 @@
         <% end %>
       </div>
   <% end %>
+</div>
 
 

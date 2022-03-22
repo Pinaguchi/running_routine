@@ -19,7 +19,7 @@ class RecordsController < ApplicationController
     else
       record = current_user.record.create({ starting_time: start_time, start_date: today})
     end
-      
+
     redirect_to edit_record_path(record.id)
   end
 
