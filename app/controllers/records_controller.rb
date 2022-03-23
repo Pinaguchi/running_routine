@@ -40,10 +40,15 @@ class RecordsController < ApplicationController
   end
 
   def show
-    @record = Record.find_by(user_id: current_user.id, start_date: Date.current)
+    @record = Record.find(params[:id])
+    @records = current_user.record.all.order(created_at: :desc)
   end
 
   private
+
+  def record_params
+    params.require(:record).permit(:starting_time, :stoped_time, :user_id)
+  end
 
   def set_beginning_of_week
     Date.beginning_of_week = :sunday

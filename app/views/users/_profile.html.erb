@@ -1,0 +1,19 @@
+<div class="col-md-3">
+  <h3>プロフィール</h3>
+    <table class="table">
+      <tr>
+        <th>ニックネーム : </th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <td>フォロー数: <%= user.followings.count %></td>
+        <td>フォロワー数: <%= user.followers.count %></td>
+      </tr>
+    </table>
+
+    <% if @user == current_user %>
+      <%= link_to "会員情報編集", edit_user_path(current_user), class: 'btn btn-outline-secondary btn-block' %>
+    <% else %>
+      <%= link_to "編集不可", users_path, class: 'btn btn-outline-secondary btn-block' %>
+    <% end %>
+</div>

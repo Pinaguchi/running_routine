@@ -1,27 +1,38 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-1">
-        <h2>〇〇さんタイムレコード</h2>
+        <h3><strong><%= @user.name%>さん</strong>の記録</h3>
         <table class="table table-hover table-inverse">
             <thead>
               <tr>
-                <th></th>
-                <th>〇月〇日</th>
+                <th>日にち</th>
                 <th>タイム</th>
                 <th>いいね</th>
               </tr>
             </thead>
-
+            <% @record.each do |record| %>
             <tbody>
                 <tr>
+                  <td><%= Time.zone.at(record.stoped_time).strftime("%Y年 %m月 %d日") %></td>
+                  <td><%= Time.zone.at(record.stoped_time - record.starting_time).strftime("%M分 %S秒") %></td>
                   <td>
-
+                    <% if record.favorited_by?(current_user) %>
+                      <p>
+                        <%= link_to record_favorites_path(record.id), method: :delete do %>
+                          ♥<%= record.favorites.count %>
+                        <% end %>
+                      </p>
+                      <% else %>
+                      <p>
+                        <%= link_to record_favorites_path(record.id), method: :post do %>
+                          ♡<%= record.favorites.count %>
+                        <% end %>
+                      </p>
+                    <% end %>
                   </td>
-                  <td></td>
-                  <td></td>
                 </tr>
             </tbody>
-
+          <% end %>
         </table>
     </div>
  </div>
