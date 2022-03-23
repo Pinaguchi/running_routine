@@ -44,6 +44,12 @@ class RecordsController < ApplicationController
     @records = current_user.record.all.order(created_at: :desc)
   end
 
+  def destroy
+    @record = Record.find(params[:id])
+    @record.destroy
+    redirect_to records_my_page_path
+  end
+
   private
 
   def record_params

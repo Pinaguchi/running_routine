@@ -7,7 +7,10 @@
       <h4>大阪城１周3.5㎞のタイム : <%= Time.zone.at(@record.stoped_time - @record.starting_time).strftime("%M分 %S秒") %></h4>
       <h4>
         1㎞を <%= Time.zone.at((@record.stoped_time - @record.starting_time) / 3.5).strftime("%M分 %S秒") %> のペースです。
+        <%= link_to "削除", record_path(@record), method: :delete, class: 'btn btn-sm btn-danger', "data-confirm" => "本当に削除しますか？" %>
       </h4>
+
+      <%= image_tag '大阪城.jpg', size: "300x300" %>
   </div>
 
 

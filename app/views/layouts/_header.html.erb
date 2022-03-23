@@ -2,7 +2,11 @@
 <nav class="navbar navbar-expand-lg bg-success text-white p-3">
   <div class="container">
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
+      <li class="navbar-nav">
+        <%= link_to root_path do %>
+          <%= image_tag 'ロゴ.png', size: "70x70" %>
+        <% end %>
+      </li>
       <ul class="navbar-nav ml-auto" >
         <% if user_signed_in? %>
           <li>
