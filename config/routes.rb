@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'records/my_page' => 'records#index'
   resources :records, only: [:new, :create, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
   end
 
 end

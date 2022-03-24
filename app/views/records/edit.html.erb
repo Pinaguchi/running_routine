@@ -3,16 +3,16 @@
     <h1>タイムを計ろう ～ ストップ ～</h1>
   </div>
 
-			 <button type="submit" class="btn btn-lg btn-danger w-25" disabled>開始</button>
+  <% if current_user.records.last.stop_flag == true %>
+    <h1 class="text-danger">【本日は記録済みです】</h1>
+  <% else %>
+   <button type="submit" class="btn btn-lg btn-danger w-25" disabled>開始</button>
+     <%= form_with(model: @record, local: true) do |form| %>
+       <div class="submit">
+        <%= form.submit '終了', class: "btn btn-lg btn-primary w-25" %>
+       </div>
+     <% end %>
 
-      <%= form_with(model: @record, local: true) do |form| %>
-        <div class="submit">
-          <%= form.submit '終了', class: "btn btn-lg btn-primary w-25" %>
-        </div>
-      <% end %>
-
-
-        スタート時間 ➡ <%= Time.zone.at(@record.starting_time).strftime("%H時 %M分 %S秒") %>
-
-  </div>
+     スタート時間 ➡ <%= Time.zone.at(@record.starting_time).strftime("%H時 %M分 %S秒") %>
+  <% end %>
 </div>

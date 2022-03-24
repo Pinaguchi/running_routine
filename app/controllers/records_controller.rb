@@ -3,24 +3,28 @@ class RecordsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @records = current_user.record.all
+    @records = current_user.records
   end
 
   def new
+   if current_user.records.exists?(start_date: Date.current)
+       record = current_user.records.find_by(start_date: Date.current)
+       redirect_to edit_record_path(record.id)
+   else
     @record = Record.new
+   end
   end
 
   def create
-    start_time = DateTime.current
-    today = Date.current
-    record =  current_user.record.find_by(start_date: today)
-    if record
-      record.update(starting_time: start_time)
-    else
-      record = current_user.record.create({ starting_time: start_time, start_date: today})
-    end
-
-    redirect_to edit_record_path(record.id)
+      start_time = DateTime.current
+      today = Date.current
+      record =  current_user.records.find_by(start_date: today)
+      if record
+        record.update(starting_time: start_time)
+      else
+        record = current_user.records.create({ starting_time: start_time, start_date: today})
+      end
+      redirect_to edit_record_path(record.id)
   end
 
   def edit
@@ -32,7 +36,7 @@ class RecordsController < ApplicationController
 
   def update
     @record = Record.find_by(user_id: current_user.id, start_date: Date.current)
-    if @record.update(stoped_time: DateTime.current)
+    if @record.update(stoped_time: DateTime.current, stop_flag: true)
       redirect_to records_my_page_path
     else
       render :edit
@@ -41,7 +45,8 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
-    @records = current_user.record.all.order(created_at: :desc)
+    @records = current_user.records.all.order(created_at: :desc)
+    @post_comment = PostComment.new
   end
 
   def destroy
