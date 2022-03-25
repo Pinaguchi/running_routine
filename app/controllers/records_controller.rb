@@ -45,8 +45,7 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
-    @records = current_user.records.all.order(created_at: :desc)
-    @post_comment = PostComment.new
+    @records = current_user.records.page(params[:page]).order(created_at: :desc)
   end
 
   def destroy

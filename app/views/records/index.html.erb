@@ -3,15 +3,13 @@
 
   <%= month_calendar attribute: :start_date, events: @records do |date, records| %>
     <%= date.day %><br>
-      <div class="link-danger h6">
         <% records.each do |record| %>
           <% if record.stoped_time  %>
-            <%= link_to record_path(record.id) do %>
+            <%= link_to record_path(record.id), class: "text-danger h6" do %>
               <%= Time.at(record.stoped_time - record.starting_time).strftime("%M分 %S秒") %>
              <% end %>
           <% end%>
         <% end %>
-      </div>
   <% end %>
 </div>
 

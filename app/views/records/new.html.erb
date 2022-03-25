@@ -3,11 +3,17 @@
       <h1>タイムを計ろう ～ スタート ～</h1>
     </div>
 
-      <%= form_with(model: @record, local: true) do |form| %>
-        <div class="submit">
-          <%= form.submit '開始', class: "btn btn-lg btn-primary w-25" %>
-        </div>
-      <% end %>
+    <div class="row">
+      <div class="col-6">
+        <%= form_with(model: @record, local: true) do |form| %>
+          <div class="submit">
+            <%= form.submit '開始', class: "btn btn-lg btn-primary stopwatch" %>
+          </div>
+        <% end %>
+      </div>
 
-    <button type="submit" class="btn btn-lg btn-danger w-25" disabled>終了</button>
+      <div class="col-6">
+        <button type="submit" class="btn btn-lg btn-danger stopwatch" disabled>終了</button>
+      </div>
+    </div>
 </div>

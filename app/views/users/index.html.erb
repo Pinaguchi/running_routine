@@ -19,7 +19,6 @@
       <th>
         <%= link_to "タイムを見る", user_path(user.id) %>
       </th>
-      <td></td>
       <td>
         <% unless current_user == user %>
           <% if current_user.following?(user) %>
