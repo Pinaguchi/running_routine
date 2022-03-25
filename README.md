@@ -23,7 +23,7 @@
 また、同じ趣味を通じた交流の場としても活用できます。
 
 ## 設計書
--https://app.diagrams.net/
+-https://drive.google.com/file/d/1P088SiCvTVM69unmZHCGQ4tuxK5S4Rv6/view?usp=sharing
 -https://docs.google.com/spreadsheets/d/1j34n98otEYpk0DXRzunmU6vxR4QJYMOrKWxPZJi5hdw/edit?usp=sharing
 
 
